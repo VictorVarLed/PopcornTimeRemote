@@ -190,7 +190,7 @@
         if (self.mode == POPCornTimeRemoteTypeMovie){
             
             [self.category setFilterName:[self.genres objectAtIndex:index]];
-        
+            
             [self sendCommand:@"filtergenre" params:@[[self.genres objectAtIndex:index]]];
             
         } else if(self.mode == POPCornTimeRemoteTypeSeries) {
@@ -205,7 +205,7 @@
         if (self.mode == POPCornTimeRemoteTypeMovie){
             
             [self.sort setFilterName:[self.ordering objectAtIndex:index]];
-        
+            
             [self sendCommand:@"filtersorter" params:@[[self.ordering objectAtIndex:index]]];
             
         } else if(self.mode == POPCornTimeRemoteTypeSeries) {
@@ -242,33 +242,33 @@
     switch (command) {
             
         case POPControlViewEnterCommand:
-
+            
             [self sendCommand:@"enter" params:nil];
             
-        break;
+            break;
         case POPControlViewUpCommand:
             
             [self sendCommand:@"up" params:nil];
             
-        break;
+            break;
             
         case POPControlViewDownCommand:
-
+            
             [self sendCommand:@"down" params:nil];
-
-        break;
+            
+            break;
             
         case POPControlViewLeftCommand:
-
+            
             [self sendCommand:@"left" params:nil];
-
-        break;
+            
+            break;
             
         case POPControlViewRightCommand:
-
+            
             [self sendCommand:@"right" params:nil];
-
-        break;
+            
+            break;
             
         case POPControlViewBackCommand:
             
@@ -281,14 +281,14 @@
                 [self clearSearch];
                 [self hideSearch];
             }
-
-        break;
+            
+            break;
             
         case POPControlViewMuteCommand:
-
+            
             [self sendCommand:@"togglemute" params:nil];
-
-        break;
+            
+            break;
             
         case POPControlViewIncreaseVolumeCommand:
             
@@ -298,19 +298,19 @@
             }
             
             [self sendCommand:@"setvolume" params:@[@(self.volume)]];
-
-        break;
+            
+            break;
             
         case POPControlViewDecreaseVolumeCommand:
-
+            
             self.volume -= 0.1;
             if (self.volume < 0.0) {
                 self.volume = 0.0;
             }
             
             [self sendCommand:@"setvolume" params:@[@(self.volume)]];
-
-        break;
+            
+            break;
     }
 }
 
@@ -358,9 +358,11 @@
     // lets get everything
     [self.listener send:@"getgenres" params:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSArray *results = (NSArray *)responseObject;
-        NSArray *list = [results objectAtIndex:0];
-
+        //        NSArray *results = (NSArray *)responseObject;
+        //        NSArray *list = [results objectAtIndex:0];
+        
+        NSArray *list = [responseObject valueForKey:@"genres"];
+        
         if (list) {
             self.genres = [list copy];
             
@@ -376,8 +378,10 @@
     
     [self.listener send:@"getsorters" params:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSArray *results = (NSArray *)responseObject;
-        NSArray *list = [results objectAtIndex:0];
+        //        NSArray *results = (NSArray *)responseObject;
+        //        NSArray *list = [results objectAtIndex:0];
+        
+        NSArray *list = [responseObject valueForKey:@"sorter"];
         
         if (list) {
             self.ordering = [list copy];
@@ -538,7 +542,7 @@
         
         self.currentViewStack = [stack mutableCopy];
     }
-
+    
 }
 
 - (void)updateViewStack:(BOOL)showHud
@@ -552,15 +556,16 @@
         hud.mode = MBProgressHUDModeIndeterminate;
         hud.backgroundColor = [UIColor colorWithWhite:0.0 alpha:.5];
         hud.labelText = NSLocalizedString(@"Initializing controller...", nil);
-    
+        
         [hud show:YES];
     }
     
     [self.listener send:@"getviewstack" params:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSArray *stack = (NSArray *)responseObject;
+        //        NSArray *stack = (NSArray *)responseObject;
+        //        NSArray *stack_list = [stack objectAtIndex:0];
         
-        NSArray *stack_list = [stack objectAtIndex:0];
+        NSArray *stack_list = [responseObject valueForKey:@"viewstack"];
         
         [self handleViewStack:stack_list];
         

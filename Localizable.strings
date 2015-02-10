@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  PopcornTimeRemote
+
+  Created by Víctor Varillas Ledesma on 07/02/15.
+  Copyright (c) 2015 skaggivara. All rights reserved.
+*/
+
+"Connect this device to the same network as your computer running Popcorn Time." = "Conecta este dispositivo a la misma red WiFi en la que tienes el equipo con Popcorn Time";
+
+"Find Popcorn Time" = "Buscar Popcorn Time";
+
+"Connect to IP address*" = "Conectar a una dirección IP*";
+
+"*Your computers IP address" = "*La dirección IP de tu equipo";
+
+"This remote control works with Popcorn Time version 3.3 and above found at http://popcorntime.io" = "Esta aplicación funciona con versiones de Popcorn Time 3.3 y superior";
+
+"Searching... (Tap to cancel)" = "Buscando (Pulsa para cancelar)";
+
+"Movies" = "Películas";
+
+"TV Series" = "Series";
+
+"OR" = "o también puedes";
+
+"Connect" = "Conectar";
+
+"Cancel" = "Cancelar";
+
+"Enter the IP address of the computer running Popcorn Time:" = "Introduce la dirección IP del equipo en el que está Popcorn Time";
+
+"Mute" = "Silenciar";
+
+"Back" = "Atrás";
+
+"Enter" = "OK";
+
+"Toggle Playstate" = "Reproducir / Pausa";
+
+"Next season" = "Temporada +";
+
+"Prev season" = "Temporada -";
