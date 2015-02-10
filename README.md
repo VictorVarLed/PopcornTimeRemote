@@ -1,6 +1,7 @@
-# PopcornTime Remote Control (IOS) 
+# PopcornTime Remote Control (iOS) 
 
 This is an Open Source remote control app for Popcorn Time 3.3+ found at http://popcorntime.io
+This version supports Popcorn Time 0.3.7-1 and adds Spanish support
 
 ## Getting Started
 
