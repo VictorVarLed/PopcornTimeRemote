@@ -8,7 +8,7 @@ This version supports Popcorn Time 0.3.7-1 and adds Spanish support
 
 Clone the app and install the required pods:
 
-    git clone https://github.com/Skaggivara/PopcornTimeRemote
+    git clone https://github.com/VictorVarLed/PopcornTimeRemote
     cd PopcornTimeRemote
     pod install
     open PopcornTimeRemote.xcworkspace
